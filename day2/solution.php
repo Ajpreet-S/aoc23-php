@@ -10,6 +10,7 @@ $gameResults = file('./input.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
             // move onto next i
     // Add game ID to the total
 
+$startTime = microtime(true);
 $id = 0;
 $total = 0;
 
@@ -39,4 +40,6 @@ foreach ($gameResults as $result) {
     $total += $id;
 }
 
-echo $total;
+$endTime = microtime(true);
+$totalTime = round($endTime - $startTime, 6);
+echo "Sum of IDS of the games: {$total}\nExecution time: {$totalTime}ms";
